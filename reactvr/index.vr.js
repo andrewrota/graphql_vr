@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-vr';
 
-class graphql_vr extends React.Component {
+class reactvr extends React.Component {
   render() {
     return (
       <View>
@@ -30,4 +30,4 @@ class graphql_vr extends React.Component {
   }
 };
 
-AppRegistry.registerComponent('graphql_vr', () => graphql_vr);
+AppRegistry.registerComponent('reactvr', () => reactvr);

@@ -6,7 +6,7 @@
 import {VRInstance} from 'react-vr-web';
 
 function init(bundle, parent, options) {
-  const vr = new VRInstance(bundle, 'graphql_vr', parent, {
+  const vr = new VRInstance(bundle, 'reactvr', parent, {
     // Add custom options here
     ...options,
   });
