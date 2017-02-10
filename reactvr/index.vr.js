@@ -12,7 +12,7 @@ class reactvr extends React.Component {
   render() {
     return (
       <View>
-        <Pano source={asset('chess-world.jpg')}/>
+        <Pano source={asset('space.jpg')}/>
         <Text
           style={{
             backgroundColor:'blue',
@@ -23,7 +23,7 @@ class reactvr extends React.Component {
             layoutOrigin: [0.5, 0.5],
             transform: [{translate: [0, 0, -3]}],
           }}>
-          hello
+          graphQL
         </Text>
       </View>
     );
