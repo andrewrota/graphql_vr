@@ -7,12 +7,15 @@ import {
   VrButton,
   Image,
   Text,
+  AmbientLight,
   View,
 } from 'react-vr';
 import Tooltip from './Tooltip.js'
 import InfoButton from './InfoButton.js'
 
-<<<<<<< HEAD
+import Planet from './planet';
+
+
 function getData() {
   return {
     "data": {
@@ -381,10 +384,10 @@ class Nodes extends React.Component {
               tooltip={tt}
               translateZ={-5}
             />
-
+            <Planet />
           </VrButton>
-
         )}
+        <AmbientLight intensity={ 2.6 }  />
       </View>
     );
   }
