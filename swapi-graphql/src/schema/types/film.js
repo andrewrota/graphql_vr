@@ -36,6 +36,10 @@ const FilmType = new GraphQLObjectType({
   description:
 'A single film.',
   fields: () => ({
+    hackImage: {
+    type: GraphQLString,
+    description: 'https://maxcdn.icons8.com/Share/icon/Logos//star_wars1600.png'
+    },
     title: {
       type: GraphQLString,
       description:

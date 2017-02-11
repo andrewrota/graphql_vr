@@ -34,6 +34,10 @@ const StarshipType = new GraphQLObjectType({
   description:
 'A single transport craft that has hyperdrive capability.',
   fields: () => ({
+    hackImage: {
+      type: GraphQLString,
+      description: 'https://s-media-cache-ak0.pinimg.com/originals/d4/a6/52/d4a652a0d59fbe08e80ce07ca14c7289.png'
+    },
     name: {
       type: GraphQLString,
       description:
