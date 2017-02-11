@@ -10,6 +10,13 @@ import {
   View,
   } from 'react-vr';
 
+const Lokka = require('lokka').Lokka;
+const Transport = require('lokka-transport-http').Transport;
+
+const client = new Lokka({
+  transport: new Transport('http://ironman.graphql.tk:1234/')
+});
+
 class Nodes extends React.Component{
   render() {
     return (
@@ -41,6 +48,18 @@ class reactvr extends React.Component {
     super(props);
     this.state = {nodes: []};
   }
+  getType() {
+    client.query(`
+    {
+      allFilms {
+        films {
+          title
+        }
+      }
+    }
+`).then(result => {
+    console.log(result.allFilms);
+});
   componentDidMount() {
     this.setState({nodes});
   }
