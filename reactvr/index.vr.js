@@ -45,7 +45,11 @@ class reactvr extends React.Component {
     this.setState({nodes});
   }
   onClick = (name) => {
-    this.setState(nodes.find((el) => {return el.name === name}));
+    const root = nodes.find((el) => {return el.name === name});
+    let newNodes = [];
+    newNodes.push(root);
+    newNodes = newNodes.concat(root.nodes);
+    this.setState({nodes: newNodes});
   }
   render() {
     return (
