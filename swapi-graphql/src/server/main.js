@@ -20,8 +20,17 @@ app.use('/', graphqlHTTP(() => ({
   graphiql: true
 })));
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
+
 // Listen for incoming HTTP requests
-const listener = app.listen("1234", () => {
+const listener = app.listen('1234', () => {
   let host = listener.address().address;
   if (host === '::') {
     host = 'localhost';
