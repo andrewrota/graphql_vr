@@ -8,8 +8,11 @@ import {
   Image,
   Text,
   View,
-  } from 'react-vr';
+} from 'react-vr';
+import Tooltip from './Tooltip.js'
+import InfoButton from './InfoButton.js'
 
+<<<<<<< HEAD
 function getData() {
   return {
     "data": {
@@ -346,37 +349,51 @@ function getFilmsData() {
     }
   }
 }
-
-class Nodes extends React.Component{
+const tt = {
+  "text": "The Bar",
+  "position": [
+    0,
+    0
+  ],
+  "linkedPhotoId": "112379"
+}
+class Nodes extends React.Component {
   render() {
     return (
       <View>
         {this.props.nodes.map((item, i) =>
-        <VrButton
-          key={item.name}
-          style={{layoutOrigin: [0.5, 0.5, 0],
+          <VrButton
+            key={item.name}
+            style={{
+              layoutOrigin: [0.5, 0.5, 0],
               position: 'absolute',
               width: 1,
               height: 1,
-              transform: [{rotateY: i*(360/this.props.nodes.length)},
-              {translate: [0, 0, -5]}]}}
-          onClick={()=>this.props.onClick(item.name)}>
-          <View
-            key={item.name}
-            style={{ margin: 0.1, height: 1, width: 1, backgroundColor: 'red'}}>
-            <Text style={{fontSize: 0.2, textAlign: 'center'}}>{item.name}</Text>
-          </View>
-        </VrButton>
+              transform: [{ rotateY: i * (360 / this.props.nodes.length) },
+              { translate: [0, 0, -5] }]
+            }}
+            onClick={() => this.props.onClick(item.name)}
+          >
+            <InfoButton
+              key={item.name}
+              rotateY={i * (360 / this.props.nodes.length)}
+              source={asset('info_icon.png')}
+              tooltip={tt}
+              translateZ={-5}
+            />
+
+          </VrButton>
+
         )}
       </View>
     );
   }
 }
-const nodes = [{name: 'foo', nodes: [{name: 'childFoo'}, {name: 'childBar'}, {name: 'childBaz'}]}, {name: 'bar'}, {name: 'baz'}, {name: 'test'}, {name: 'root'}];
+const nodes = [{ name: 'foo', nodes: [{ name: 'childFoo' }, { name: 'childBar' }, { name: 'childBaz' }] }, { name: 'bar' }, { name: 'baz' }, { name: 'test' }, { name: 'root' }];
 class reactvr extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {nodes: []};
+    this.state = { nodes: [] };
   }
   getType() {
     client.query(`
@@ -388,23 +405,23 @@ class reactvr extends React.Component {
       }
     }
 `).then(result => {
-      console.log(result.allFilms);
-    });
+        console.log(result.allFilms);
+      });
   }
   componentDidMount() {
-    this.setState({nodes: getData().data.__type.fields});
+    this.setState({ nodes: getData().data.__type.fields });
   }
   onClick = (name) => {
-    const root = this.state.nodes.find((el) => {return el.name === name});
+    const root = this.state.nodes.find((el) => { return el.name === name });
     let newNodes = [];
     newNodes.push(root);
     newNodes = newNodes.concat(getFilmsData().data.__type.fields);
-    this.setState({nodes: newNodes});
+    this.setState({ nodes: newNodes });
   }
   render() {
     return (
       <View>
-        <Pano source={asset('eso0932a.jpg')}/>
+        <Pano source={asset('eso0932a.jpg')} />
         <Nodes onClick={this.onClick} nodes={this.state.nodes} />
       </View>
     );
