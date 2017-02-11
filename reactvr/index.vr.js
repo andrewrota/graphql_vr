@@ -12,7 +12,7 @@ class reactvr extends React.Component {
   render() {
     return (
       <View>
-        <Pano source={asset('space.jpg')}/>
+        <Pano source={asset('eso0932a.jpg')}/>
         <Text
           style={{
             backgroundColor:'blue',
