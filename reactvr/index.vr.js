@@ -26,8 +26,10 @@ class reactvr extends React.Component {
             <VrButton
               key={item.name}
               style={{layoutOrigin: [0.5, 0.5, 0],
-              position: 'absolute',width: 1,
-              height: 1,transform: [{rotateY: i*(360/nodes.length)},
+              position: 'absolute',
+              width: 1,
+              height: 1,
+              transform: [{rotateY: i*(360/nodes.length)},
               {translate: [0, 0, -5]}]}}
               onClick={()=>this._onViewClicked(item.name)}>
               <View
