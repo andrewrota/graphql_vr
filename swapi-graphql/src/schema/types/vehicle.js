@@ -34,6 +34,10 @@ const VehicleType = new GraphQLObjectType({
   description:
 'A single transport craft that does not have hyperdrive capability',
   fields: () => ({
+    hackImage: {
+      type: GraphQLString,
+      description: 'http://cdn.brianstoys.com/media/catalog/product/cache/1/thumbnail/600x600/9df78eab33525d08d6e5fb8d27136e95/a/9/a92790790_dad_sw_ep2_anakins_jedi_starfighter_vehicle_life4_medium_72dpi_.png'
+    },
     name: {
       type: GraphQLString,
       description:

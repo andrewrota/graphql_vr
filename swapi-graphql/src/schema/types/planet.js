@@ -35,6 +35,10 @@ const PlanetType = new GraphQLObjectType({
 `A large mass, planet or planetoid in the Star Wars Universe, at the time of
 0 ABY.`,
   fields: () => ({
+    hackImage: {
+      type: GraphQLString,
+      description: 'http://essenmitsosse.de/blog/wp-content/uploads/starwars/deathstar.jpg'
+    },
     name: {
       type: GraphQLString,
       description:

@@ -36,6 +36,10 @@ const PersonType = new GraphQLObjectType({
   description:
 'An individual person or character within the Star Wars universe.',
   fields: () => ({
+    hackImage: {
+      type: GraphQLString,
+      description: 'http://www.clipartkid.com/images/533/krafty-nook-star-wars-svg-files-SHP4Tr-clipart.png'
+    },
     name: {
       type: GraphQLString,
       description:

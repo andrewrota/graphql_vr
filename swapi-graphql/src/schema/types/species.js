@@ -36,6 +36,10 @@ const SpeciesType = new GraphQLObjectType({
   description:
 'A type of person or character within the Star Wars Universe.',
   fields: () => ({
+    hackImage: {
+      type: GraphQLString,
+      description: 'http://studybreaks.com/wp-content/uploads/2015/12/011.jpg'
+    },
     name: {
       type: GraphQLString,
       description:
