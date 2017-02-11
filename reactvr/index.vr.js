@@ -16,6 +16,342 @@ const Transport = require('lokka-transport-http').Transport;
 const client = new Lokka({
   transport: new Transport('http://ironman.graphql.tk:1234/')
 });
+function getData() {
+  return {
+    "data": {
+      "__type": {
+        "name": "Root",
+        "fields": [
+          {
+            "name": "allFilms",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "FilmsConnection",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "film",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "Film",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "allPeople",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "PeopleConnection",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "person",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "Person",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "allPlanets",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "PlanetsConnection",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "planet",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "Planet",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "allSpecies",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "SpeciesConnection",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "species",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "Species",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "allStarships",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "StarshipsConnection",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "starship",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "Starship",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "allVehicles",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "VehiclesConnection",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "vehicle",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "Vehicle",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "node",
+            "description": "Fetches an object given its ID",
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "Node",
+              "kind": "INTERFACE",
+              "ofType": null
+            }
+          }
+        ]
+      }
+    }
+  };
+}
+function getFilmsData() {
+  return {
+    "data": {
+      "__type": {
+        "name": "Film",
+        "fields": [
+          {
+            "name": "hackImage",
+            "description": "https://maxcdn.icons8.com/Share/icon/Logos//star_wars1600.png",
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "String",
+              "kind": "SCALAR",
+              "ofType": null
+            }
+          },
+          {
+            "name": "title",
+            "description": "The title of this film.",
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "String",
+              "kind": "SCALAR",
+              "ofType": null
+            }
+          },
+          {
+            "name": "episodeID",
+            "description": "The episode number of this film.",
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "Int",
+              "kind": "SCALAR",
+              "ofType": null
+            }
+          },
+          {
+            "name": "openingCrawl",
+            "description": "The opening paragraphs at the beginning of this film.",
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "String",
+              "kind": "SCALAR",
+              "ofType": null
+            }
+          },
+          {
+            "name": "director",
+            "description": "The name of the director of this film.",
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "String",
+              "kind": "SCALAR",
+              "ofType": null
+            }
+          },
+          {
+            "name": "producers",
+            "description": "The name(s) of the producer(s) of this film.",
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": null,
+              "kind": "LIST",
+              "ofType": {
+                "name": "String",
+                "kind": "SCALAR"
+              }
+            }
+          },
+          {
+            "name": "releaseDate",
+            "description": "The ISO 8601 date format of film release at original creator country.",
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "String",
+              "kind": "SCALAR",
+              "ofType": null
+            }
+          },
+          {
+            "name": "speciesConnection",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "FilmSpeciesConnection",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "starshipConnection",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "FilmStarshipsConnection",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "vehicleConnection",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "FilmVehiclesConnection",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "characterConnection",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "FilmCharactersConnection",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "planetConnection",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "FilmPlanetsConnection",
+              "kind": "OBJECT",
+              "ofType": null
+            }
+          },
+          {
+            "name": "created",
+            "description": "The ISO 8601 date format of the time that this resource was created.",
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "String",
+              "kind": "SCALAR",
+              "ofType": null
+            }
+          },
+          {
+            "name": "edited",
+            "description": "The ISO 8601 date format of the time that this resource was edited.",
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": "String",
+              "kind": "SCALAR",
+              "ofType": null
+            }
+          },
+          {
+            "name": "id",
+            "description": "The ID of an object",
+            "isDeprecated": false,
+            "deprecationReason": null,
+            "type": {
+              "name": null,
+              "kind": "NON_NULL",
+              "ofType": {
+                "name": "ID",
+                "kind": "SCALAR"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
 
 class Nodes extends React.Component{
   render() {
@@ -58,8 +394,9 @@ class reactvr extends React.Component {
       }
     }
 `).then(result => {
-    console.log(result.allFilms);
-});
+      console.log(result.allFilms);
+    });
+  }
   componentDidMount() {
     this.setState({nodes});
   }
