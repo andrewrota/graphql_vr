@@ -352,21 +352,50 @@ function getFilmsData() {
     }
   }
 }
-const tt = {
-  "text": "The Bar",
+const tt = [{
+  "text": "This type represents a planet from \nthe Star Wars Galaxies. Planets which have been annihilated \nare denoted with an asterisk.",
+  "title": "Planets!",
   "position": [
     0,
     0
   ],
   "linkedPhotoId": "112379"
-}
+},
+{
+  "text": "Each member of this type is a person in \nthe Star Wars Galaxy. Since most people in the \nStar Wars Galaxy are related, the computational burden \nof rendering relationship lines is too great.  ",
+    "title": "People!",
+    "position": [
+      0,
+      0
+    ],
+    "linkedPhotoId": "112379"
+  },
+{
+  "text": "The modern space citizen can't make \nit very far without a space ship!  This type describes \nthe different members of the fleet.",
+  "title": "Space ships!",
+  "position": [
+    0,
+    0
+  ],
+  "linkedPhotoId": "112379"
+},
+  {
+    "text": "Mankind demonstrates his superiority over the animal \nkingdom throughout the galaxy.",
+    "title": "Beasts!",
+    "position": [
+      0,
+      0
+    ],
+    "linkedPhotoId": "112379"
+  }
+]
 class Nodes extends React.Component {
   render() {
     return (
       <View>
         {this.props.nodes.map((item, i) =>
           <VrButton
-            key={item.name}
+            key={`${item.name}_vrbutton`}
             style={{
               layoutOrigin: [0.5, 0.5, 0],
               position: 'absolute',
@@ -378,13 +407,15 @@ class Nodes extends React.Component {
             onClick={() => this.props.onClick(item.name)}
           >
             <InfoButton
-              key={item.name}
+              key={`${item.name}_info`}
               rotateY={i * (360 / this.props.nodes.length)}
               source={asset('info_icon.png')}
-              tooltip={tt}
+              tooltip={tt[Math.floor(Math.random()*4)]}
               translateZ={-5}
             />
-            <Planet />
+            <Planet 
+              key={`${item.name}_planet`}
+             />
           </VrButton>
         )}
         <AmbientLight intensity={ 2.6 }  />
