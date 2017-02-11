@@ -45,8 +45,7 @@ class reactvr extends React.Component {
     this.setState({nodes});
   }
   onClick = (name) => {
-    //console.log(this.nodes.find((el) => {el.name === name}));
-    //this.setState({nodes: nodes.find((el) => {el.name === name})});
+    this.setState(nodes.find((el) => {return el.name === name}));
   }
   render() {
     return (
