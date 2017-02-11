@@ -20,7 +20,7 @@ class Planet extends React.Component{
         style={{
           transform: [
             {translate: [0, 0, -70]},
-            {scale: 0.03 + Math.random() * 0.02 },
+            {scale: 0.02 + Math.random() * 0.02 },
             {rotateX: Math.random() * 360},
             {rotateY: Math.random() * 360},
             {rotateZ: Math.random() * 360}
