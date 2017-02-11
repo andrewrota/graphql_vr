@@ -21,7 +21,7 @@ app.use('/', graphqlHTTP(() => ({
 })));
 
 // Listen for incoming HTTP requests
-const listener = app.listen(() => {
+const listener = app.listen("1234", () => {
   let host = listener.address().address;
   if (host === '::') {
     host = 'localhost';
